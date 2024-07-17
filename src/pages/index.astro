@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Glow from '../components/Glow.astro';
+---
+
+<Layout title="Welcome to Astro.">
+  <section class="grid gap-5 grid-rows-2 p-5 tablet:p-10 laptop:p-0 laptop:grid-rows-1 laptop:grid-cols-12">
+    <article class="laptop:col-start-2 laptop:col-span-5">
+      <div class="relative">
+        <h2 class="text-2xl desktop:text-4xl">Hey! I'm
+          <span class="text-3xl desktop:text-5xl font-bold text-accent">⁕</span>
+        </h2>
+        <Glow class="absolute -translate-x-1/2 -translate-y-1/2 left-12"/>
+      </div>
+      <h1 class="text-3xl font-bold tablet:text-4xl desktop:text-5xl">Javier Díaz</h1>
+      <p class="text-base max-w-prose text-pretty">
+        Web Developer and IT student creating user-centric websites.
+        Explore my portfolio for a glimpse into the dynamic world
+        of digital innovation.
+      </p>
+    </article>
+    <div class="laptop:col-span-5 bg-accent">
+       
+    </div>
+  </section>
+</Layout>

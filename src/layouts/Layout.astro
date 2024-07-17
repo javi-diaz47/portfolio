@@ -1,0 +1,30 @@
+---
+import '@fontsource-variable/inter'
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+  <body class="flex justify-center bg-white dark:bg-black min-h-screen">
+    <main class="max-w-screen-desktop-xl my-5">
+		  <slot />
+    </main>
+	</body>
+</html>
+<style is:global>
+  h1, h2, h3, h4, h5, h6, p, span, a, caption {
+    @apply text-black dark:text-white
+  }
+</style>

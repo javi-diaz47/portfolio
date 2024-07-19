@@ -1,22 +1,21 @@
 ---
-import Glow from '../components/Glow.astro';
+import NavbarItem from './NavbarItem.astro'
+import TranslateIcon from './TranslateIcon.astro'
 ---
 
-<section class="h-screen py-5 grid place-content-center gap-24 grid-rows-2 p-5 tablet:p-10 laptop:p-0 laptop:grid-rows-1 laptop:grid-cols-12">
-  <article class="flex flex-col justify-center laptop:col-start-2 laptop:col-span-5">
-    <div class="relative">
-      <h2 class="text-2xl desktop:text-4xl">Hey! I'm
-        <span class="text-3xl desktop:text-5xl font-bold text-accent">⁕</span>
-      </h2>
-      <Glow class="absolute -translate-x-1/2 -translate-y-1/2 left-12"/>
-    </div>
-    <h1 class="text-3xl font-bold tablet:text-4xl desktop:text-5xl">Javier Díaz</h1>
-    <p class="text-base max-w-prose text-pretty">
-      Web Developer and IT student creating user-centric websites.
-      Explore my portfolio for a glimpse into the dynamic world
-      of digital innovation.
-    </p>
-  </article>
-  <div class="self-center h-1/2 laptop:col-span-5 bg-accent">
-  </div>
-</section>
+<header class="z-10 top-0 py-4 sticky flex items-center justify-around bg-white dark:bg-black">
+  <h2 class="text-lg font-bold">Javier Díaz
+    <span class="text-accent text-center">⁕</span>
+  </h2>
+  <nav class="bg-[#fff] shadow-md dark:bg-white py-2 px-12 rounded-full">
+    <ul class="relative grid grid-cols-4 gap-10">
+      <NavbarItem title='home' href='#home' />
+      <NavbarItem title='skills' href='#skills' />
+      <NavbarItem title='projects' href='#projects' />
+      <NavbarItem title='contact' href='#contact' />
+    </ul>
+  </nav>
+  <button>
+    <TranslateIcon type='en' />
+  </button>
+</header>

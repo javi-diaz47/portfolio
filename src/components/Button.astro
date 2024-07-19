@@ -1,0 +1,27 @@
+---
+type Style = "primary" | "secondary" | "accent"
+interface Props {
+  title: string,
+  style: Style
+}
+const {title, style} = Astro.props
+
+const getStyle = () => {
+  switch (style) {
+    case "primary":
+      return "bg-primary text-white"
+    case "secondary":
+      return "bg-secondary-light text-black dark:bg-secondary"
+    case "accent":
+      return "bg-accent text-white"
+  }
+}
+
+const styles = getStyle()
+---
+
+<button class={`${styles} flex justify-center items-center gap-2 text-base h-8 py-4 px-6 rounded-lg`}>
+  <slot name="before"/>
+  {title}
+  <slot name="after"/>
+</button>

@@ -1,5 +1,69 @@
-<section id="projects" class="h-screen grid grid-rows-3 gap-8 mb-8 p-5">
-  <article class="self-center">
+---
+//TODO:
+//Add style
+//[] Content
+//[] Highlights
+//[] Background
+//[] Responsive
+import type { Project } from '../types.d.ts'
+import ProjectCard from './ProjectCard.astro'
+
+
+const projects: Project[] = [
+  {
+    title: "Pomotimer",
+    date: "2022",
+    techStack: [
+      {type: 'nextjs' },
+      {type: 'react' },
+      {type: 'ts' },
+      {type: 'js' },
+      {type: 'tailwind'},
+    ],
+    desc: "Web application that helps Colombian freelancers find work and increase their personal branding"
+  },
+  {
+    title: "Symulation",
+    date: "2022",
+    techStack: [
+      {type: 'nextjs' },
+      {type: 'react' },
+      {type: 'ts' },
+      {type: 'js' },
+      {type: 'tailwind'},
+    ],
+    desc: "Web application that helps Colombian freelancers find work and increase their personal branding"
+  },
+  {
+    title: "Web Entrepreneur Assistant",
+    date: "2022",
+    techStack: [
+      {type: 'nextjs' },
+      {type: 'react' },
+      {type: 'ts' },
+      {type: 'js' },
+      {type: 'tailwind'},
+    ],
+    desc: "Web application that helps Colombian freelancers find work and increase their personal branding"
+  },
+  {
+    title: "Pokedex",
+    date: "2022",
+    techStack: [
+      {type: 'nextjs' },
+      {type: 'react' },
+      {type: 'ts' },
+      {type: 'js' },
+      {type: 'tailwind'},
+    ],
+    desc: "Web application that helps Colombian freelancers find work and increase their personal branding"
+  },
+]
+---
+
+<section id="projects" class="h-screen grid grid-rows-4 gap-8 mb-8 p-5">
+
+  <article class="self-end">
     <div class="relative">
       <h1 class="text-2xl desktop:text-5xl font-bold">
         Projects
@@ -7,4 +71,18 @@
       </h1>
     </div>
   </article>
+  
+  <div class="grid border-white border-t-[1px]">
+    {
+      projects.map(({title, date, techStack, desc}) => (
+        <ProjectCard 
+          title={title}
+          date={date} 
+          techStack={techStack} 
+          desc={desc}
+        />
+      ))
+    }
+  
+  </div>
 </section>

@@ -1,7 +1,8 @@
 import { useMousePosition } from "../Hooks/useMousePosition"
-import { useState, type RefObject } from "react"
+import { useEffect, useState, type RefObject } from "react"
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
+import { useCursorStore } from "../store/cursorStore"
 
 export const useCursor = (ref: RefObject<HTMLDivElement>) => {
 
@@ -37,6 +38,13 @@ export const useCursor = (ref: RefObject<HTMLDivElement>) => {
   const onMouseDefault = () => {
     setSize(DEFAULT_CURSOR_SIZE)
   }
+
+  const state = useCursorStore(state => state)
+
+  useEffect(() => {
+    state.addMouseDefault(onMouseDefault)
+    state.addMouseHover(onMouseHover)
+  }, [])
 
   return {
     onMouseDefault,

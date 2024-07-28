@@ -10,14 +10,12 @@ export const useCursor = (ref: RefObject<HTMLDivElement>) => {
 
   const cursor = ref
 
-  type DefaultCursorSize = 24
-  type HoverCursorSize = 120
+  type CursorSize = 16 | 64
+  const [size, setSize] = useState<CursorSize>(16)
 
-  const DEFAULT_CURSOR_SIZE: DefaultCursorSize = 24
-  const HOVER_CURSOR_SIZE: HoverCursorSize = 120
 
-  type CursorSize = DefaultCursorSize | HoverCursorSize
-  const [size, setSize] = useState<CursorSize>(DEFAULT_CURSOR_SIZE)
+  type CursorType = 'default' | 'link' | 'download'
+  const [type, setType] = useState<CursorType>('default')
 
   useGSAP(() => {
     const { x, y } = mousePos
@@ -31,12 +29,18 @@ export const useCursor = (ref: RefObject<HTMLDivElement>) => {
 
   }, [mousePos, size])
 
-  const onMouseHover = () => {
-    setSize(HOVER_CURSOR_SIZE)
+  const onMouseHover = (type: CursorType) => {
+    setType(type)
+    setSize(64)
   }
 
+  const onMouseHoverLink = () => onMouseHover('link')
+
+  const onMouseHoverDownload = () => onMouseHover('download')
+
   const onMouseDefault = () => {
-    setSize(DEFAULT_CURSOR_SIZE)
+    setType('default')
+    setSize(16)
   }
 
   const state = useCursorStore(state => state)
@@ -44,10 +48,16 @@ export const useCursor = (ref: RefObject<HTMLDivElement>) => {
   useEffect(() => {
     state.addMouseDefault(onMouseDefault)
     state.addMouseHover(onMouseHover)
+    state.addMouseHoverLink(onMouseHoverLink)
+    state.addMouseHoverDownload(onMouseHoverDownload)
   }, [])
 
   return {
+    type,
+    isHover: size === 16 ? false : true,
     onMouseDefault,
-    onMouseHover
+    onMouseHover,
+    onMouseHoverLink,
+    onMouseHoverDownload
   }
 }

@@ -1,17 +1,14 @@
-import { useCursorStore } from "../store/cursorStore"
+import { CursorAnimaionWrapper } from "./CursorAnimationWrapper"
 
 export function Text() {
 
-  const state = useCursorStore()
-
-  console.log(state)
   return (
-    <p
-      onMouseOver={state.onMouseHover}
-      onMouseLeave={state.onMouseDefault}
-      className="text-4xl text-black dark:text-white">
-      おやすみ
-    </p>
+    <CursorAnimaionWrapper type='link'>
+      <p
+        className="text-4xl text-black dark:text-white">
+        おやすみ
+      </p>
+    </CursorAnimaionWrapper>
 
   )
 }

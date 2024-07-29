@@ -9,40 +9,45 @@ const techIcons = {
 }
 ---
 
-<section id="skills" class="h-screen grid grid-rows-3 items-center mb-8 p-5">
+<section id="skills" class="h-screen grid grid-rows-3 items-center pt-12">
+  
+  <div class="row-span-1 grid grid-cols-12 gap-24">
+    <article class="self-center col-start-2 col-span-10 ">
+      <div class="relative col-start-2">
+        <h1 class="text-2xl desktop:text-5xl">
+          These are </br>
+          my 
+          <span class="font-bold">Skills</span>
+          <span class="text-3xl text-primary desktop:text-5xl font-bold dark:text-accent">⁕</span>
+        </h1>
+      </div>
+    </article>
+  </div>
 
-  <article class="self-center">
-    <div class="relative">
-      <h1 class="text-2xl desktop:text-5xl">
-        These are </br>
-        my 
-        <span class="font-bold">Skills</span>
-        <span class="text-3xl text-primary desktop:text-5xl font-bold dark:text-accent">⁕</span>
-      </h1>
-    </div>
-  </article>
-
-  <article class="w-full grid grid-cols-[2fr_4fr_3fr] h-56 gap-12">
-    <SkillSet icons={techIcons.tools} title="Tools"/>
-    <SkillSet icons={techIcons.languages} title="Languages"/>
-    <div class="relative flex justify-end items-center">
-      <h3 class="text-xl text-right desktop:text-3xl">
-        But of course</br>
-        you want to see </br>
-        them in action
-      </h2>
-    </div>
-  </article>
-
-  <article class="w-full grid grid-cols-[3fr_4fr_2fr] h-56 gap-12">
-    <div class="relative flex  items-center ">
-      <h3 class="text-xl desktop:text-3xl">
-        Let's take a look</br>
-        at my projects</br>
-      </h3>
-    </div>
-    <SkillSet icons={techIcons.frameworks} title="Libraries & Frameworks"/>
-    <SkillSet icons={techIcons.devTools} title="DevTools"/>
-  </article>
+   <div class="row-span-1 grid grid-cols-12 gap-24">
+    <article class="w-full col-start-2 col-span-10 grid grid-cols-[2fr_4fr_3fr] h-44 gap-12">
+      <SkillSet icons={techIcons.tools} title="Tools"/>
+      <SkillSet icons={techIcons.languages} title="Languages"/>
+      <div class="relative flex justify-end items-center">
+        <h3 class="text-xl text-right desktop:text-2xl">
+          But of course</br>
+          you want to see </br>
+          them in action
+        </h3>
+      </div>
+    </article>
+  </div>
+   <div class="row-span-1 grid grid-cols-12 gap-24">
+    <article class="w-full col-start-2 col-span-10 grid grid-cols-[3fr_4fr_2fr] h-44 gap-12">
+      <div class="relative flex  items-center ">
+        <h3 class="text-xl desktop:text-2xl">
+          Let's take a look</br>
+          at my projects</br>
+        </h3>
+      </div>
+      <SkillSet icons={techIcons.frameworks} title="Libraries & Frameworks"/>
+      <SkillSet icons={techIcons.devTools} title="DevTools"/>
+    </article>
+  </div>
 
 </section>

@@ -7,7 +7,7 @@ interface Props {
 const {title, forName} = Astro.props
 ---
 
-<div class="grid">
+<div class="grid gap-2">
   <label class="capitalize" for={forName}>{title}</label>
   <slot />
 </div>

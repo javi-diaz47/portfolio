@@ -6,6 +6,7 @@ interface Icon {
 
 const {type, className} = Astro.props
 ---
+<div class="relative group flex items-center justify-start">
 
 {
   type === 'git' &&
@@ -177,3 +178,11 @@ const {type, className} = Astro.props
     </defs>
   </svg>
 }
+ <div 
+    class="absolute scale-0 group-hover:scale-100 transition-all text-black bg-primary rounded-full px-3 -bottom-1/2 left-1/2 -translate-x-1/2"
+  >
+    <span class="capitalize">
+      {type}
+    </span>
+  </div> 
+</div>

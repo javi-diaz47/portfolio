@@ -1,0 +1,30 @@
+---
+import Link from './Link.astro'
+
+interface SocialNetwork {
+  title: string
+  href: string
+}
+
+const socialNetworks: SocialNetwork[] = [
+  {
+    href:"https://github.com/javi-diaz47",
+    title: "Github",
+  },
+  {
+    href:"https://www.linkedin.com/in/javier-eduardo-perez-diaz/",
+    title: "Linkedin",
+  }
+]
+---
+
+<ul>
+  {
+  socialNetworks.map(({title, href}) => (
+    <li class="mb-2">
+      <Link title={title} href={href}/> 
+    </li>
+    ))
+  }
+</ul>
+

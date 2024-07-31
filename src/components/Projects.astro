@@ -3,9 +3,8 @@
 //Add style
 //[] Content
 //[] Highlights
-//[] Background
 //[] Responsive
-import type { Project } from '../types.d.ts'
+//
 import ProjectCard from './ProjectCard.astro'
 import Button from './Button.astro'
 import {PROJECTS} from '../mockups/projects'
@@ -13,34 +12,38 @@ import {PROJECTS} from '../mockups/projects'
 const projects = PROJECTS
 ---
 
-<section id="projects" class="h-screen w-full flex flex-col mb-8 p-5">
+<section id="projects" class="h-screen flex items-center gap-24 ">
 
-  <article class="justify-around mt-12 pb-6">
-    <div class="relative">
+  <div class="grid grid-cols-12 gap-x-24">
+
+    <article class="flex items-center col-start-2 col-end-12 pb-16">
       <h2 class="text-2xl desktop:text-5xl font-bold">
         Projects
         <span class="text-3xl text-primary desktop:text-5xl font-bold dark:text-accent">⁕</span>
       </h2>
-    </div>
-  </article>
-  
-  <div class="grid grid-rows-4 ">
-    {
-      projects.map(({title, date, techStack, desc}) => (
-        <ProjectCard 
-          title={title}
-          date={date} 
-          techStack={techStack} 
-          desc={desc}
-    />
-      ))
-    }
-  </div>
+    </article>
 
-  <div class="flex h-full after:absolute after:w-full after:border-t-[1px] after:border-black after:dark:border-white after:left-0">
-    <div class="w-full flex justify-center items-center">
-     <Button title='See all projects' style='secondary' />
-    </div>
+    <article class="col-start-2 col-end-12">
+      {
+        projects.map(({title, date, techStack, desc}) => (
+          <div class="col-start-2 col-end-12">
+            <ProjectCard 
+              title={title}
+              date={date} 
+              techStack={techStack} 
+              desc={desc}
+            />
+          </div>
+        ))
+      }
+    </article>
+    
+    <article class="col-start-2 col-end-12 flex h-full after:absolute after:w-full after:border-t-[1px] after:border-black after:dark:border-white after:left-0">
+      <div class="w-full pt-16 flex justify-center items-center">
+        <Button title='See all projects' style='secondary' />
+      </div>
+    </article>
+
   </div>
 
 </section>

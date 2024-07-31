@@ -8,72 +8,23 @@
 import type { Project } from '../types.d.ts'
 import ProjectCard from './ProjectCard.astro'
 import Button from './Button.astro'
+import {PROJECTS} from '../mockups/projects'
 
-
-const projects: Project[] = [
-  {
-    title: "Pomotimer",
-    date: "2022",
-    techStack: [
-      {type: 'nextjs' },
-      {type: 'react' },
-      {type: 'ts' },
-      {type: 'js' },
-      {type: 'tailwind'},
-    ],
-    desc: "Web application that helps Colombian freelancers find work and increase their personal branding"
-  },
-  {
-    title: "Symulation",
-    date: "2022",
-    techStack: [
-      {type: 'nextjs' },
-      {type: 'react' },
-      {type: 'ts' },
-      {type: 'js' },
-      {type: 'tailwind'},
-    ],
-    desc: "Web application that helps Colombian freelancers find work and increase their personal branding"
-  },
-  {
-    title: "Web Entrepreneur Assistant",
-    date: "2022",
-    techStack: [
-      {type: 'nextjs' },
-      {type: 'react' },
-      {type: 'ts' },
-      {type: 'js' },
-      {type: 'tailwind'},
-    ],
-    desc: "Web application that helps Colombian freelancers find work and increase their personal branding"
-  },
-  {
-    title: "Pokedex",
-    date: "2022",
-    techStack: [
-      {type: 'nextjs' },
-      {type: 'react' },
-      {type: 'ts' },
-      {type: 'js' },
-      {type: 'tailwind'},
-    ],
-    desc: "Web application that helps Colombian freelancers find work and increase their personal branding"
-  },
-]
+const projects = PROJECTS
 ---
 
 <section id="projects" class="h-screen w-full flex flex-col mb-8 p-5">
 
   <article class="justify-around mt-12 pb-6">
     <div class="relative">
-      <h1 class="text-2xl desktop:text-5xl font-bold">
+      <h2 class="text-2xl desktop:text-5xl font-bold">
         Projects
         <span class="text-3xl text-primary desktop:text-5xl font-bold dark:text-accent">⁕</span>
-      </h1>
+      </h2>
     </div>
   </article>
   
-  <div class="grid border-white">
+  <div class="grid grid-rows-4 ">
     {
       projects.map(({title, date, techStack, desc}) => (
         <ProjectCard 

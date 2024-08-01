@@ -14,7 +14,7 @@ export const useCursor = (ref: RefObject<HTMLDivElement>) => {
   const [size, setSize] = useState<CursorSize>(16)
 
 
-  type CursorType = 'default' | 'link' | 'download'
+  type CursorType = 'default' | 'link' | 'download' | 'message'
   const [type, setType] = useState<CursorType>('default')
 
   useGSAP(() => {
@@ -24,7 +24,8 @@ export const useCursor = (ref: RefObject<HTMLDivElement>) => {
       width: size,
       height: size,
       x: x - size / 2,
-      y: y - size / 2
+      y: y - size / 2,
+      ease: 'power2'
     })
 
   }, [mousePos, size])
@@ -38,6 +39,8 @@ export const useCursor = (ref: RefObject<HTMLDivElement>) => {
 
   const onMouseHoverDownload = () => onMouseHover('download')
 
+  const onMouseHoverMessage = () => onMouseHover('message')
+
   const onMouseDefault = () => {
     setType('default')
     setSize(16)
@@ -50,6 +53,7 @@ export const useCursor = (ref: RefObject<HTMLDivElement>) => {
     state.addMouseHover(onMouseHover)
     state.addMouseHoverLink(onMouseHoverLink)
     state.addMouseHoverDownload(onMouseHoverDownload)
+    state.addMouseHoverMessage(onMouseHoverMessage)
   }, [])
 
   return {

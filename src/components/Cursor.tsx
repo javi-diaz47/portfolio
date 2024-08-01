@@ -2,6 +2,7 @@ import { useCursor } from "../Hooks/useCursor"
 import { useRef } from "react"
 import { LinkIcon } from "./LinkIcon"
 import { DownloadIcon } from "./DownloadIcon"
+import { PaperPlaneIcon } from "./PaperPlaneIcon"
 
 export function Cursor() {
   const cursor = useRef<HTMLDivElement>(null)
@@ -18,6 +19,10 @@ export function Cursor() {
       />
       <DownloadIcon
         className={`${type === 'download' ? 'scale-1' : 'scale-0 sr-only'} transition-all fill-white dark:fill-black`}
+      />
+
+      <PaperPlaneIcon
+        className={`${type === 'message' ? 'scale-1' : 'scale-0 sr-only'} transition-all fill-white dark:fill-black`}
       />
     </div >
   )

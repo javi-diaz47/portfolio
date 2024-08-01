@@ -3,8 +3,10 @@ import Button from './Button.astro'
 import SocialNetworks from './SocialNetworks.astro'
 import FormEmail from './FormEmail.astro'
 import DownloadIcon from './DownloadIcon.astro'
+import {CursorAnimationWrapper} from './CursorAnimationWrapper.tsx'
 
 //TODO:
+//[] extends the ButtonWithMouseHovr
 //[] add highlight
 ---
 
@@ -35,11 +37,13 @@ import DownloadIcon from './DownloadIcon.astro'
     <h3 class="text-xl mb-6">
       Download my CV
     </h3>
-    <Button title="Download CV" style='accent'>
-      <div slot="after">
-        <DownloadIcon />
-      </div>
-    </Button>
+    <CursorAnimationWrapper client:load cursor='download'>
+      <Button title="Download CV" style='accent'>
+        <div slot="after">
+          <DownloadIcon />
+        </div>
+      </Button>
+    </CursorAnimationWrapper>
   </article>
 
 </section>

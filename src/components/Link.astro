@@ -1,4 +1,6 @@
 ---
+import {CursorAnimationWrapper} from './CursorAnimationWrapper.tsx'
+
 interface Props {
   title: string
   href: string
@@ -6,11 +8,13 @@ interface Props {
 
 const {title, href} = Astro.props
 ---
-
-<a href={href}
-  target="_blank" 
-  rel="noopener noreferrer"
-  class="underline text-base text-black dark:text-white">
-  {title}
-</a>
-
+<div class="w-fit">
+  <CursorAnimationWrapper client:load cursor='link'>
+    <a href={href}
+      target="_blank" 
+      rel="noopener noreferrer"
+      class="underline text-lg text-black dark:text-white">
+      {title}
+    </a>
+  </CursorAnimationWrapper>
+</div>

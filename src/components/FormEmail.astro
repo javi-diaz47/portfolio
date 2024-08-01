@@ -1,0 +1,28 @@
+---
+import Label from './Label.astro'
+import Button from './Button.astro'
+import {CursorAnimationWrapper} from './CursorAnimationWrapper.tsx'
+
+const fieldStyle = "rounded-lg p-2 text-black shadow-secondary-light shadow-sm bg-secondary-light"
+---
+
+<form class="grid gap-6 text-base text-black dark:text-white">
+  <Label title="name" forName="name">
+    <input name="name" type="email" class={fieldStyle} required/> 
+  </Label>
+  
+  <Label title="email" forName="email">
+    <input name="email" type="email" class={fieldStyle} required/>
+  </Label>
+
+  <Label title="message" forName="message">
+    <textarea name="message" class={fieldStyle} required/>
+  </Label>
+
+  <div class="flex justify-start">
+    <CursorAnimationWrapper client:load cursor='message'>
+      <Button title="Send email" style="accent" />
+    </CursorAnimationWrapper>
+  </div>
+
+</form>

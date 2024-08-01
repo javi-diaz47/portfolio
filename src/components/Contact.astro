@@ -1,10 +1,49 @@
-<section id="contact" class="h-screen grid grid-rows-3 gap-8 mb-8 p-5">
-  <article class="self-center">
-    <div class="relative">
-      <h1 class="text-2xl desktop:text-5xl font-bold">
-        Contact me
-        <span class="text-3xl text-primary desktop:text-5xl font-bold dark:text-accent">⁕</span>
-      </h1>
-    </div>
+---
+import Button from './Button.astro'
+import SocialNetworks from './SocialNetworks.astro'
+import FormEmail from './FormEmail.astro'
+import DownloadIcon from './DownloadIcon.astro'
+import {CursorAnimationWrapper} from './CursorAnimationWrapper.tsx'
+
+//TODO:
+//[] extends the ButtonWithMouseHovr
+//[] add highlight
+---
+
+<section id="contact" class="h-screen grid grid-cols-12 gap-x-24 gap-y-12 grid-rows-4">
+
+  <article class="grid col-start-2 col-end-12">
+    <h2 class="self-end text-2xl desktop:text-5xl font-bold">
+      Contact me
+      <span class="text-3xl text-primary desktop:text-5xl font-bold dark:text-accent">⁕</span>
+    </h2>
   </article>
+    
+  <article class="col-start-2 col-span-4 row-span-3">
+    <h3 class="text-xl mb-6">
+      Send me an Email
+    </h3>
+    <FormEmail />
+  </article>
+
+  <article class="w-full col-span-3 row-span-3">
+    <h3 class="text-xl mb-6">
+      Social Networks
+    </h3>
+    <SocialNetworks/>
+  </article>
+
+  <article class="w-full col-span-3 row-span-3">
+    <h3 class="text-xl mb-6">
+      Download my CV
+    </h3>
+    <CursorAnimationWrapper client:load cursor='download'>
+      <Button title="Download CV" style='accent'>
+        <div slot="after">
+          <DownloadIcon />
+        </div>
+      </Button>
+    </CursorAnimationWrapper>
+  </article>
+
 </section>

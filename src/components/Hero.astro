@@ -1,6 +1,8 @@
 ---
 import Glow from './Glow.astro';
 import Button from './Button.astro'
+import { CursorAnimationWrapper } from "./CursorAnimationWrapper.tsx"
+
 ---
 
 <section id="home" class="h-screen py-5 grid place-content-center gap-24 grid-rows-2 p-5 tablet:p-10 laptop:p-0 laptop:grid-rows-1 laptop:grid-cols-12">
@@ -18,8 +20,12 @@ import Button from './Button.astro'
       of digital innovation.
     </p>
     <div class="flex flex-col gap-6 tablet:flex-row">
-      <Button title="See projects" style="primary"  />
-      <Button title="Download CV" style="secondary"  />
+      <CursorAnimationWrapper client:load cursor="link">
+        <Button title="See projects" style="primary"/>
+      </CursorAnimationWrapper>
+      <CursorAnimationWrapper client:load cursor="download">
+        <Button title='Download CV' style='secondary'/>
+      </CursorAnimationWrapper>
     </div>
   </article>
   <div class="self-center h-1/2 laptop:col-span-5 bg-accent">

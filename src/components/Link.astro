@@ -1,0 +1,20 @@
+---
+import {CursorAnimationWrapper} from './CursorAnimationWrapper.tsx'
+
+interface Props {
+  title: string
+  href: string
+}
+
+const {title, href} = Astro.props
+---
+<div class="w-fit">
+  <CursorAnimationWrapper client:load cursor='link'>
+    <a href={href}
+      target="_blank" 
+      rel="noopener noreferrer"
+      class="underline text-lg text-black dark:text-white">
+      {title}
+    </a>
+  </CursorAnimationWrapper>
+</div>

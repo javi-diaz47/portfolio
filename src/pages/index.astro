@@ -5,10 +5,12 @@ import Hero from '../components/Hero.astro'
 import Skills from '../components/Skills.astro'
 import Projects from '../components/Projects.astro'
 import Contact from '../components/Contact.astro'
-import Button from '../components/Button.astro'
+import {Cursor} from '../components/Cursor'
 ---
 
 <Layout title="Welcome to Astro.">
+
+  <Cursor client:load />
   <Header />
   <Hero />
   <Skills />

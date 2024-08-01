@@ -1,6 +1,7 @@
 ---
 import Label from './Label.astro'
 import Button from './Button.astro'
+import {CursorAnimationWrapper} from './CursorAnimationWrapper.tsx'
 
 const fieldStyle = "rounded-lg p-2 text-black shadow-secondary-light shadow-sm bg-secondary-light"
 ---
@@ -19,7 +20,9 @@ const fieldStyle = "rounded-lg p-2 text-black shadow-secondary-light shadow-sm b
   </Label>
 
   <div class="flex justify-start">
-    <Button title="Send email" style="accent" />
+    <CursorAnimationWrapper client:load cursor='message'>
+      <Button title="Send email" style="accent" />
+    </CursorAnimationWrapper>
   </div>
 
 </form>
